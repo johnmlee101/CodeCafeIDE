@@ -13,6 +13,12 @@
 		myCodeMirror.focus();
 	}
 
+	function saveOffline(){
+		codeText = myCodeMirror.getValue();
+		var blob = new Blob([codeText], {type: "text/javascript;charset=utf-8"});
+		saveAs(blob, "CodeCafeCode.js");
+	}
+
 	function runData() {
 		save();
 		try {

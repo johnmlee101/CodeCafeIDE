@@ -21,6 +21,7 @@
 		<script src="CodeMirror/addon/edit/matchbrackets.js"></script>
 		
 		<script src="script.js"></script>
+		<script src="FileSaver.js"></script>
 	</head>   
    
 	<body>
@@ -39,6 +40,7 @@
 	
 		<div class="button-bar">
 			<button id="save" class="button" onclick="save()" type="button">Save</button>
+			<button id="save" class="button" onclick="saveOffline()" type="button">Save Offline</button>
 			<button id="run" class="button" onclick="runData()" type="button">Run</button>
 			<button id="clearIDE" class="button" onclick="clearIDE()" type="button">Clear Code</button>
 			<button id="dark" class="button" onclick="switchTheme()" type="button">Dark</button>
