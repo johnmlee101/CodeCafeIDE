@@ -26,11 +26,9 @@
 			var code = String(myCodeMirror.getValue());
 			var start = new Date().getMilliseconds();
 			code = "var start = new Date().getTime();\n" + code;
-			// alert(start);
 			if((code.indexOf("while") > -1) || ((code.indexOf("for") > -1)))
 			{
 				code = code.replace("{","{\nvar end = new Date().getTime();\nif(end - start >= 2000){\nprint('You probably hit an  infinite loop');\n break;\n}\n");
-				// alert(code);
 			}
 			var result = eval(String(code));
 		} catch (e) {
