@@ -34,12 +34,12 @@
 					}
 					var newBracIndex = code.indexOf("{", forIndex);
 
-					alert(code[newBracIndex]);
+					// alert(code[newBracIndex]);
 					var segmentOne = code.substr(0,newBracIndex);
 					var breakCond = "{\nvar end = new Date().getTime();\nif(end - start >= 2000){\nprint('You probably hit an  infinite loop');\n break;\n}\n";
 					var segmentTwo = code.substr(newBracIndex+1,code.length)
 					var newCode = segmentOne + breakCond + segmentTwo;
-					alert(segmentOne + breakCond + segmentTwo);
+					// alert(segmentOne + breakCond + segmentTwo);
 				}
 			var result = eval(String(newCode));
 		} catch (e) {
