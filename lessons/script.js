@@ -26,11 +26,22 @@
 			var code = String(myCodeMirror.getValue());
 			var start = new Date().getMilliseconds();
 			code = "var start = new Date().getTime();\n" + code;
-			if((code.indexOf("while") > -1) || ((code.indexOf("for") > -1)))
-			{
-				code = code.replace("{","{\nvar end = new Date().getTime();\nif(end - start >= 2000){\nprint('You probably hit an  infinite loop');\n break;\n}\n");
-			}
-			var result = eval(String(code));
+				if((code.indexOf("while") > -1) || ((code.indexOf("for") > -1)))
+				{
+					var forIndex = code.indexOf("for");
+					if(forIndex == -1){
+						forIndex = code.indexOf("while");
+					}
+					var newBracIndex = code.indexOf("{", forIndex);
+
+					alert(code[newBracIndex]);
+					var segmentOne = code.substr(0,newBracIndex);
+					var breakCond = "{\nvar end = new Date().getTime();\nif(end - start >= 2000){\nprint('You probably hit an  infinite loop');\n break;\n}\n";
+					var segmentTwo = code.substr(newBracIndex+1,code.length)
+					var newCode = segmentOne + breakCond + segmentTwo;
+					alert(segmentOne + breakCond + segmentTwo);
+				}
+			var result = eval(String(newCode));
 		} catch (e) {
 			console.log(e);
 			result = e.message;
