@@ -40,8 +40,13 @@
 					var segmentTwo = code.substr(newBracIndex+1,code.length)
 					var newCode = segmentOne + breakCond + segmentTwo;
 					// alert(segmentOne + breakCond + segmentTwo);
+					var result = eval(String(newCode));
 				}
-			var result = eval(String(newCode));
+				else
+				{
+					var result = eval(String(code));
+				}
+			
 		} catch (e) {
 			console.log(e);
 			result = e.message;
